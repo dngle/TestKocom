@@ -41,7 +41,7 @@ class UserViewModel(application: Application) : BasicViewModel(application) {
                 title = it.title,
                 date = it.date,
                 description = it.description,
-                onItemClick = :: onItemClickUser,
+                onItemClick = ::onItemClickUser,
                 layoutId = R.layout.item_user,
                 viewType = 0
             )
@@ -50,15 +50,16 @@ class UserViewModel(application: Application) : BasicViewModel(application) {
 
         convertedItemUser.postValue(userListToConvert)
     }
+
     fun sortUsers(criteria: String) {
         val currentUsers = userData.value ?: emptyList()
         val sortedUsers = when (criteria) {
-            Constants.BundleParam.INDEX  -> currentUsers.sortedBy { it.index }
+            Constants.BundleParam.INDEX -> currentUsers.sortedBy { it.index }
             Constants.BundleParam.TITLE -> currentUsers.sortedBy { it.title }
-            Constants.BundleParam.DATE  -> currentUsers.sortedBy { it.date }
+            Constants.BundleParam.DATE -> currentUsers.sortedBy { it.date }
             else -> currentUsers
         }
-        userData.postValue(sortedUsers.reversed()) // Luôn sắp xếp giảm dần
+        userData.postValue(sortedUsers.reversed())
     }
 
 }

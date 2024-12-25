@@ -30,6 +30,7 @@ class UserActivity : BaseBindingActivity<UserViewModel, ActivityUserBinding>(),
         viewModel.loadUsers()
         initSortFeature()
     }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
@@ -61,7 +62,12 @@ class UserActivity : BaseBindingActivity<UserViewModel, ActivityUserBinding>(),
     private fun initSortFeature() {
         binding?.spinnerSort?.let { spinner ->
             spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
                     val criteria = when (position) {
                         0 -> Constants.BundleParam.INDEX
                         1 -> Constants.BundleParam.TITLE
@@ -70,6 +76,7 @@ class UserActivity : BaseBindingActivity<UserViewModel, ActivityUserBinding>(),
                     }
                     viewModel.sortUsers(criteria)
                 }
+
                 override fun onNothingSelected(parent: AdapterView<*>?) {
 
                 }

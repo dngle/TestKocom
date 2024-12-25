@@ -2,90 +2,92 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
-        <import type="android.view.View"/>
-        <import type="com.example.sel.base.Utils"/>
+
+        <import type="android.view.View" />
+
+        <import type="com.example.sel.base.Utils" />
+
         <variable
             name="itemBaseModel"
             type="com.example.sel.base.model.ItemUserConverted" />
     </data>
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="15dp"
         android:onClick="@{() -> itemBaseModel.onItemClick()}"
-
-        app:cardElevation="8dp"
         app:cardCornerRadius="8dp"
-        android:layout_margin="15dp">
+        app:cardElevation="8dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/dimen_16"
-            >
+            android:padding="@dimen/dimen_16">
+
             <TextView
                 android:id="@+id/txt_index"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_semi_bold"
-                android:textSize="14sp"
-                tools:text="1000"
-                android:text='@{"Index : "+itemBaseModel.id}'
-                android:maxLines="2"
                 android:ellipsize="end"
-                app:layout_constraintStart_toStartOf="parent"
+                android:fontFamily="@font/inter_semi_bold"
+                android:maxLines="2"
+                android:text='@{"Index : "+itemBaseModel.id}'
+                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                />
+                tools:text="1000" />
+
             <TextView
                 android:id="@+id/txt_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_semi_bold"
-                android:textSize="14sp"
-                android:text='@{"Title : "+itemBaseModel.title}'
-                tools:text="Ethics in Technology"
-                android:maxLines="2"
-                android:ellipsize="end"
                 android:layout_marginTop="@dimen/dimen_10"
+                android:ellipsize="end"
+                android:fontFamily="@font/inter_semi_bold"
+                android:maxLines="2"
+                android:text='@{"Title : "+itemBaseModel.title}'
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/txt_index"
                 app:layout_constraintStart_toStartOf="@+id/txt_index"
                 app:layout_constraintTop_toBottomOf="@id/txt_index"
-                app:layout_constraintEnd_toEndOf="@id/txt_index"
-                />
+                tools:text="Ethics in Technology" />
+
             <TextView
                 android:id="@+id/txt_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_semi_bold"
-                android:textSize="14sp"
-                tools:text="2023-07-20"
-                android:text='@{"Date : "+itemBaseModel.date}'
-                android:maxLines="2"
-                android:ellipsize="end"
                 android:layout_marginTop="@dimen/dimen_10"
+                android:ellipsize="end"
+                android:fontFamily="@font/inter_semi_bold"
+                android:maxLines="2"
+                android:text='@{"Date : "+itemBaseModel.date}'
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/txt_title"
                 app:layout_constraintStart_toStartOf="@+id/txt_title"
                 app:layout_constraintTop_toBottomOf="@id/txt_title"
-                app:layout_constraintEnd_toEndOf="@id/txt_title"
-                />
+                tools:text="2023-07-20" />
+
             <TextView
                 android:id="@+id/txt_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_semi_bold"
-                android:textSize="14sp"
-                android:maxLines="2"
-                android:ellipsize="end"
-                android:text='@{"Description : "+itemBaseModel.description}'
-                tools:text="Explore the ethical considerations in technology and their implications"
                 android:layout_marginTop="@dimen/dimen_10"
+                android:ellipsize="end"
+                android:fontFamily="@font/inter_semi_bold"
+                android:maxLines="2"
+                android:text='@{"Description : "+itemBaseModel.description}'
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/txt_date"
                 app:layout_constraintStart_toStartOf="@+id/txt_date"
                 app:layout_constraintTop_toBottomOf="@id/txt_date"
-                app:layout_constraintEnd_toEndOf="@id/txt_date"/>
+                tools:text="Explore the ethical considerations in technology and their implications" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
     </androidx.cardview.widget.CardView>
 </layout>
 

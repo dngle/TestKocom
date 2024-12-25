@@ -1,17 +1,16 @@
 package com.example.sel.screenListUser
 
 import android.app.Activity
-import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.sel.R
 import com.example.sel.base.BaseBindingActivity
 import com.example.sel.base.Constants
-import com.example.sel.base.Utils
 import com.example.sel.databinding.ActivityDetailUserBinding
 
-class DetailUserActivity  : BaseBindingActivity<DetailUserViewModel, ActivityDetailUserBinding>(), View.OnClickListener {
+class DetailUserActivity : BaseBindingActivity<DetailUserViewModel, ActivityDetailUserBinding>(),
+    View.OnClickListener {
 
     override fun setActivityLayout(): Int {
         return R.layout.activity_detail_user
@@ -39,7 +38,7 @@ class DetailUserActivity  : BaseBindingActivity<DetailUserViewModel, ActivityDet
     }
 
     override fun observeData() {
-        var id = (intent.extras?.getString(Constants.BundleParam.INDEX) ?:"")
+        var id = (intent.extras?.getString(Constants.BundleParam.INDEX) ?: "")
         viewModel.userData.observe(this) { userList ->
             val matchingUser = userList.find { it.index == id.toInt() }
             if (matchingUser != null) {
@@ -49,20 +48,23 @@ class DetailUserActivity  : BaseBindingActivity<DetailUserViewModel, ActivityDet
             }
         }
     }
+
     private fun initListener() {
         binding?.btnBack?.setOnClickListener(this)
         binding?.btnDelete?.setOnClickListener(this)
     }
+
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btn_back -> {
-               onBackPressed()
+                onBackPressed()
             }
+
             R.id.btn_delete -> {
                 val id = intent.extras?.getString(Constants.BundleParam.INDEX)?.toIntOrNull()
                 if (id != -1) {
-                    viewModel.deleteUser(id?:0)
-                    Toast.makeText(this, "User deleted successfully!", Toast.LENGTH_SHORT).show()
+                    viewModel.deleteUser(id ?: 0)
+                    Toast.makeText(this, getString(R.string.noti_delete), Toast.LENGTH_SHORT).show()
                     setResult(Activity.RESULT_OK)
                     finish()
                 }

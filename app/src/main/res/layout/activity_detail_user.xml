@@ -4,11 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="com.example.sel.screenListUser.DetailUserViewModel" />
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -19,8 +22,7 @@
             android:layout_height="@dimen/dimen_56"
             android:layout_marginTop="@dimen/dimen_16"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/imgMore"
@@ -46,14 +48,14 @@
             app:layout_constraintEnd_toStartOf="@+id/btn_delete"
             app:layout_constraintStart_toEndOf="@+id/btn_back"
             app:layout_constraintTop_toTopOf="@+id/btn_back" />
+
         <View
             android:id="@+id/btn_delete"
             android:layout_width="@dimen/dimen_56"
             android:layout_height="@dimen/dimen_56"
             android:layout_marginTop="@dimen/dimen_16"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/icon_delete"
@@ -71,8 +73,8 @@
             android:layout_margin="@dimen/dimen_16"
             app:cardCornerRadius="@dimen/dimen_8"
             app:cardElevation="@dimen/dimen_8"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_header">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -82,16 +84,15 @@
                 android:padding="@dimen/dimen_16">
 
 
-
                 <TextView
                     android:id="@+id/txt_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
-                    android:textColor="@color/white"
-                    android:text='@{"Title: "+viewModel.title}'
                     android:fontFamily="@font/inter_semi_bold"
                     android:maxLines="2"
+                    android:text='@{"Title: "+viewModel.title}'
+                    android:textColor="@color/white"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -104,10 +105,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dimen_10"
                     android:ellipsize="end"
-                    android:text='@{"Date: "+viewModel.date}'
-                    android:textColor="@color/white"
                     android:fontFamily="@font/inter_semi_bold"
                     android:maxLines="2"
+                    android:text='@{"Date: "+viewModel.date}'
+                    android:textColor="@color/white"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="@id/txt_title"
                     app:layout_constraintStart_toStartOf="@+id/txt_title"
@@ -121,10 +122,10 @@
                     android:layout_marginTop="@dimen/dimen_10"
                     android:layout_marginBottom="@dimen/dimen_60"
                     android:ellipsize="end"
-                    android:textColor="@color/white"
-                    android:text='@{"Description: "+viewModel.description}'
                     android:fontFamily="@font/inter_semi_bold"
                     android:maxLines="2"
+                    android:text='@{"Description: "+viewModel.description}'
+                    android:textColor="@color/white"
                     android:textSize="@dimen/text_size_14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@id/txt_date"

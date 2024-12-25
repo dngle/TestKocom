@@ -1,0 +1,13 @@
+<resources>
+    <string name="list_user">List User</string>
+    <string name="detail_user">Detail User</string>
+    <string-array name="sort_criteria">
+        <item>Index</item>
+        <item>Title</item>
+        <item>Date</item>
+    </string-array>
+
+
+
+
+</resources>

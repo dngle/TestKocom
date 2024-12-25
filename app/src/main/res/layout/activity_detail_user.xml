@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="com.example.sel.screenListUser.DetailUserViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/btn_back"
+            android:layout_width="@dimen/dimen_56"
+            android:layout_height="@dimen/dimen_56"
+            android:layout_marginTop="@dimen/dimen_16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <ImageView
+            android:id="@+id/imgMore"
+            android:layout_width="@dimen/dimen_30"
+            android:layout_height="@dimen/dimen_30"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_back"
+            app:layout_constraintEnd_toEndOf="@+id/btn_back"
+            app:layout_constraintStart_toStartOf="@+id/btn_back"
+            app:layout_constraintTop_toTopOf="@+id/btn_back"
+            app:srcCompat="@drawable/hi_ic_back_new_home" />
+
+
+        <TextView
+            android:id="@+id/txt_header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/fredokaoneregular"
+            android:gravity="center"
+            android:text="@string/detail_user"
+            android:textColor="@color/primary"
+            android:textSize="@dimen/text_size_40sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_back"
+            app:layout_constraintEnd_toStartOf="@+id/btn_delete"
+            app:layout_constraintStart_toEndOf="@+id/btn_back"
+            app:layout_constraintTop_toTopOf="@+id/btn_back" />
+        <View
+            android:id="@+id/btn_delete"
+            android:layout_width="@dimen/dimen_56"
+            android:layout_height="@dimen/dimen_56"
+            android:layout_marginTop="@dimen/dimen_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <ImageView
+            android:id="@+id/icon_delete"
+            android:layout_width="@dimen/dimen_30"
+            android:layout_height="@dimen/dimen_30"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_delete"
+            app:layout_constraintEnd_toEndOf="@+id/btn_delete"
+            app:layout_constraintStart_toStartOf="@+id/btn_delete"
+            app:layout_constraintTop_toTopOf="@+id/btn_delete"
+            app:srcCompat="@drawable/icons_delete" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_16"
+            app:cardCornerRadius="@dimen/dimen_8"
+            app:cardElevation="@dimen/dimen_8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_header">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/blue_main"
+                android:padding="@dimen/dimen_16">
+
+
+
+                <TextView
+                    android:id="@+id/txt_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:textColor="@color/white"
+                    android:text='@{"Title: "+viewModel.title}'
+                    android:fontFamily="@font/inter_semi_bold"
+                    android:maxLines="2"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Ethics in Technology" />
+
+                <TextView
+                    android:id="@+id/txt_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:ellipsize="end"
+                    android:text='@{"Date: "+viewModel.date}'
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/inter_semi_bold"
+                    android:maxLines="2"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@id/txt_title"
+                    app:layout_constraintStart_toStartOf="@+id/txt_title"
+                    app:layout_constraintTop_toBottomOf="@id/txt_title"
+                    tools:text="2023-07-20" />
+
+                <TextView
+                    android:id="@+id/txt_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:layout_marginBottom="@dimen/dimen_60"
+                    android:ellipsize="end"
+                    android:textColor="@color/white"
+                    android:text='@{"Description: "+viewModel.description}'
+                    android:fontFamily="@font/inter_semi_bold"
+                    android:maxLines="2"
+                    android:textSize="@dimen/text_size_14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/txt_date"
+                    app:layout_constraintStart_toStartOf="@+id/txt_date"
+                    app:layout_constraintTop_toBottomOf="@id/txt_date"
+                    tools:text="Explore the ethical considerations in technology and their implications" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
